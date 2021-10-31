@@ -31,13 +31,14 @@ const storage = multer.memoryStorage()
 const upload = multer({ storage, preservePath: true })
 const app = express()
 const port = process.env.PORT || 5000
-const PROTOCOL = process.env.PROTOCOL || 'http'
-const HOST = process.env.HOST || 'localhost'
+const PROTOCOL = process.env.CORS_PROTOCOL || 'https'
+const HOST = process.env.CORS_HOST || 'brngdsn.github.io'
+const API_PORT = process.env.CORS_PORT || 80
 
 // configure api server
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ credentials: true, origin: `${PROTOCOL}://${HOST}:${port}` }))
+app.use(cors({ credentials: true, origin: `${PROTOCOL}://${HOST}:${API_PORT}` }))
 app.use(morgan('tiny'))
 app.use((req, res, next) => {
   res.set('X-Blackwater-Creek-API-Version', `v${version}`)
