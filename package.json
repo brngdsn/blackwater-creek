@@ -1,0 +1,21 @@
+{
+  "name": "blackwater-creek",
+  "version": "0.2.0",
+  "description": "heroku nodejs expressjs restful api",
+  "main": "src/index.js",
+  "repository": "git@github.com:brngdsn/blackwater-creek.git",
+  "author": "brn.gdsn@gmail.com",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --watch src/index.js src/index.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.14"
+  }
+}
