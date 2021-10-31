@@ -38,7 +38,7 @@ const API_PORT = process.env.CORS_PORT || 80
 // configure api server
 app.use(cookieParser())
 app.use(express.urlencoded({ extended: true }))
-app.use(cors({ credentials: true, origin: `${PROTOCOL}://${HOST}:${API_PORT}` }))
+app.use(cors({ credentials: true, origin: `${PROTOCOL}://${HOST}` + (API_PORT === 80 ? '' : `:${API_PORT}`) }))
 app.use(morgan('tiny'))
 app.use((req, res, next) => {
   res.set('X-Blackwater-Creek-API-Version', `v${version}`)
